@@ -24,10 +24,12 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->default()
             ->id('admin')
             ->path('admin')
             ->login()
-            ->registration()
+            // ->registration()
+            ->brandName("Hamro Bazar Admin")
             ->authGuard('admin')
             ->colors([
                 'primary' => Color::Amber,
