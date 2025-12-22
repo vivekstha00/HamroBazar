@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('logo');
             $table->string('playstore_link') -> nullable();
             $table->string('ios_link') -> nullable();
-            $table->string('terms') -> nullable();
-            $table->string('how_to_order') -> nullable();
+            $table->longText('policy') -> nullable();
+            $table->longText('terms') -> nullable();
+            $table->longText('how_to_order') -> nullable();
             $table->timestamps();
         });
     }
