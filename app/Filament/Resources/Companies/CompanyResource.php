@@ -20,7 +20,13 @@ class CompanyResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static ?string $modelLabel = 'Company';
     protected static ?string $pluralModelLabel = 'Company';
+
+    public static function canCreate(): bool
+    {
+        return Company::count() == 0;
+    }
 
     public static function form(Schema $schema): Schema
     {
