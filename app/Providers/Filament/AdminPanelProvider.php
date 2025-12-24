@@ -28,6 +28,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->profile()
             // ->registration()
             ->brandName("Hamro Bazar Admin")
             ->authGuard('admin')
