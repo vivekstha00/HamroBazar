@@ -42,10 +42,6 @@ jobs:
       - name: Run Migrations (SQLite)
         run: php artisan migrate:fresh --env=testing --force
 
-      # If you created ColorSeeder / etc, enable this:
-      # - name: Seed Database (optional)
-      #   run: php artisan db:seed --env=testing --force
-
       - name: Execute Tests (PHPUnit)
         run: vendor/bin/phpunit
 
