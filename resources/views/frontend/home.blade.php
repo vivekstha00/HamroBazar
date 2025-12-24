@@ -29,7 +29,7 @@
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-4">
                         <h4 class="fw-semibold mb-4">Client Request Form</h4>
-                        if ($errors->any())
+                        @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul class="mb-0">
                                     @foreach ($errors->all() as $error)

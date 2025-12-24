@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Mail\ClientRequestNotification;
+use App\Models\Admin;
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PageController extends BaseController
 {
@@ -27,6 +30,13 @@ class PageController extends BaseController
         $client->email = $request->input('email');
         $client->address = $request->input('address');
         $client->save();
+
+        $admin = Admin::first();
+        if ($admin) {
+            Mail::to($admin)->send(new ClientRequestNotification($client));
+        }
+
+
         return redirect()->back()->with('success', 'Client request submitted successfully!');
 
     }
