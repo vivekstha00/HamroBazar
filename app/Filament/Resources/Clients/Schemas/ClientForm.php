@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Clients\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -22,15 +23,15 @@ class ClientForm
                     ->label('Email address')
                     ->email()
                     ->required(),
-                TextInput::make('password')
-                    ->password()
-                    ->default(null),
                 TextInput::make('address')
                     ->required(),
-                TextInput::make('logo')
-                    ->default(null),
-                TextInput::make('status')
+                Select::make('status')
                     ->required()
+                    ->options([
+                        'pending' => 'Pending',
+                        'approved' => 'Approved',
+                        'inactive' => 'Inactive',
+                    ])
                     ->default('pending'),
                 DatePicker::make('expire_at'),
             ]);

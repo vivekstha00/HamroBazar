@@ -13,19 +13,19 @@ class ClientsTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->defaultSort("created_at", "desc")
             ->columns([
                 TextColumn::make('client_name')
                     ->searchable(),
                 TextColumn::make('shop_name')
                     ->searchable(),
                 TextColumn::make('contact')
+                    ->copyable()
                     ->searchable(),
                 TextColumn::make('email')
                     ->label('Email address')
                     ->searchable(),
                 TextColumn::make('address')
-                    ->searchable(),
-                TextColumn::make('logo')
                     ->searchable(),
                 TextColumn::make('status')
                     ->searchable(),
