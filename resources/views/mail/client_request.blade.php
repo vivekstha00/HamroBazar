@@ -82,7 +82,7 @@
                             <table cellpadding="0" cellspacing="0" style="margin-top:18px;">
                                 <tr>
                                     <td>
-                                        <a href="{{ url('/') }}"
+                                        <a href="{{ url('/admin') }}"
                                            style="display:inline-block; background:#0d6efd; color:#ffffff; text-decoration:none; padding:10px 16px; border-radius:10px; font-size:14px; font-weight:600;">
                                             Open Website
                                         </a>
