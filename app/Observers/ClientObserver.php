@@ -22,13 +22,16 @@ class ClientObserver
      */
     public function updated(Client $client): void
     {
-        if($client->isDirty('status') && $client->status === 'approved') {
-            $password = rand(0000, 9999);
+        if ($client->isDirty('status') && $client->status === 'approved') {
+
+            $password = str_pad((string) random_int(0, 9999), 4, '0', STR_PAD_LEFT);
+
             $client->password = Hash::make($password);
             $client->saveQuietly();
 
             Mail::to($client->email)->send(new ClientCredential($client, $password));
         }
+
     }
 
     /**
